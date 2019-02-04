@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>GeoNames</title>
+<link rel="search" type="application/opensearchdescription+xml" title="geonames" href="http://www.geonames.org/opensearch-description.xml">
+<link href="/geonames.ico" rel="shortcut icon" >
+<link rel="StyleSheet" href="/geonames.css" type="text/css" >
+<link rel="StyleSheet" href="/geonames-index.css" type="text/css" >
+</head>
+<body>
+<div id="top">
+<div id="login-search">
+<a href="http://www.geonames.org/login" title="login or create new user account">login</a>
+</div>
+</div>
+
+<script type="text/javascript">
+function searchOnMap() {
+  if (document.searchForm.q.value == '') {
+    alert('Please enter a name.');
+    return;
+  }
+  var q = encodeURIComponent(document.searchForm.q.value);
+  if (document.searchForm.country.value != '') {
+    q = q + '&country=' + document.searchForm.country.value;
+  }
+  if (document.searchForm.featureClass != null && document.searchForm.featureClass.value != '') {
+    q = q + '&featureClass=' + document.searchForm.featureClass.value;
+  }
+  if (document.searchForm.continentCode != null && document.searchForm.continentCode.value != '') {
+    q = q + '&continentCode=' + document.searchForm.continentCode.value;
+  }
+  window.location = '/maps/showOnMap?q='+ q;
+}
+</script>
+</body>
+</html>
